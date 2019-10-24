@@ -6,7 +6,7 @@ UserName = input("Enter Jira user Name:")
 Password = getpass.getpass()
 
 warnings.filterwarnings("ignore")
-filter = 'https://jira.ops.service.anz/rest/api/2/filter/'+ID
+filter = 'https://jira.com/rest/api/2/filter/'+ID
 
 ID1 = int(ID)
 resp1 = requests.get(filter,auth=(UserName, Password),verify=False)
@@ -18,7 +18,7 @@ sum1 = 0
 i = 1
 while (sum1 < total):
     
-    dls = "https://jira.ops.service.anz/sr/jira.issueviews:searchrequest-excel-current-fields/"+ID+"/SearchRequest-"+ID+".xls?jqlQuery=&tempMax=1000&pager/start="+ str(sum1)
+    dls = "https://jira.com/sr/jira.issueviews:searchrequest-excel-current-fields/"+ID+"/SearchRequest-"+ID+".xls?jqlQuery=&tempMax=1000&pager/start="+ str(sum1)
     resp = requests.get(dls,verify=False)
     sum1 = sum1 + 1000
     file = 'test'+str(i)+'.xls'
